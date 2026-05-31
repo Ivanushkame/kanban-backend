@@ -26,3 +26,12 @@ exports.getProjects = async (req, res) => {
     res.status(500).json(error);
   }
 };
+exports.deleteProject = async (req, res) => {
+  try {
+    await Project.delete(req.params.id);
+    res.json({ message: 'Проект удалён' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+};

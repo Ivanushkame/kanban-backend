@@ -22,5 +22,14 @@ module.exports = {
       [name, description]
     );
     return rows[0];
-  }
+  },
+
+  delete: async (id) => {
+  await pool.query(
+    'DELETE FROM projects WHERE id = $1',
+    [id]
+  );
+}
+
+
 };
